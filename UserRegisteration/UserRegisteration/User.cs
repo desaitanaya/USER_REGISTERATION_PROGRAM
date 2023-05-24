@@ -105,12 +105,13 @@ namespace UserRegisteration
             }
         }
 
+        //Password validation
         public void UserPassword()
         {
             Console.WriteLine("Enter the Password : ");
             string password = Console.ReadLine();
-
-            String passwordPattern = @".{8,}$";
+            
+            String passwordPattern = @"(?=.*[A-Z]).{8,}$"; 
 
             Regex regexPassword = new Regex(passwordPattern);
             
