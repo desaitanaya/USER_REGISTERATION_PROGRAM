@@ -111,7 +111,7 @@ namespace UserRegisteration
             Console.WriteLine("Enter the Password : ");
             string password = Console.ReadLine();
             
-            String passwordPattern = @"(?=.*[A-Z]).{8,}$"; 
+            String passwordPattern = @"(?=.*\D[A-Z]).{8,}$"; 
 
             Regex regexPassword = new Regex(passwordPattern);
             
