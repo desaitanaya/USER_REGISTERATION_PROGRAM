@@ -95,12 +95,35 @@ namespace UserRegisteration
             {
                 Console.WriteLine("Phone Number : " + phoneNumber);
                 Console.WriteLine();
+                UserPassword();
             }
             else
             {
                 Console.WriteLine("Invalid Phone Number");
                 Console.WriteLine();
                 UserPhoneNumber();
+            }
+        }
+
+        public void UserPassword()
+        {
+            Console.WriteLine("Enter the Password : ");
+            string password = Console.ReadLine();
+
+            String passwordPattern = @".{8,}$";
+
+            Regex regexPassword = new Regex(passwordPattern);
+            
+            if (regexPassword.IsMatch(password))
+            { 
+                Console.WriteLine("Password : " + password);
+                Console.WriteLine();
+            }
+            else 
+            { 
+                Console.WriteLine("Invalid Password");
+                Console.WriteLine();
+                UserPassword();
             }
         }
     }
