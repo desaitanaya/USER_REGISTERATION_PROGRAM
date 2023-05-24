@@ -22,10 +22,30 @@ namespace UserRegisteration
             if (regexFirstName.IsMatch(firstName))
             {
                 Console.WriteLine("First Name : " + firstName);
+                UserLastName();
             }
             else
             {
                 Console.WriteLine("Invalid First Name");
+            }
+        }
+
+        public void UserLastName()
+        {
+            Console.WriteLine("Enter Last Name : ");
+            string lastName = Console.ReadLine();
+
+            string namePattern = @"^[A-Z]{1}[a-z]{2,}$";
+
+            Regex regexLastName = new Regex(namePattern);
+
+            if (regexLastName.IsMatch(lastName))
+            {
+                Console.WriteLine("Last Name : " + lastName);
+            }
+            else
+            {
+                Console.WriteLine("Invalid Last Name");
             }
         }
     }
