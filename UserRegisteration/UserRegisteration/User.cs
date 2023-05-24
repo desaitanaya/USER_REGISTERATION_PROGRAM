@@ -71,12 +71,36 @@ namespace UserRegisteration
             {
                 Console.WriteLine("Email : " + email);
                 Console.WriteLine();
+                UserPhoneNumber();
             }
             else
             {
                 Console.WriteLine("Invalid Email");
                 Console.WriteLine();
                 UserEmail();
+            }
+        }
+
+        //Validating Phone Number
+        public void UserPhoneNumber()
+        {
+            Console.WriteLine("Enter Phone Number : ");
+            string phoneNumber = Console.ReadLine();
+
+            string phonePattern = @"\d{2}\s\d{10}$";
+            
+            Regex regexPhoneNumber = new Regex(phonePattern);
+
+            if (regexPhoneNumber.IsMatch(phoneNumber))
+            {
+                Console.WriteLine("Phone Number : " + phoneNumber);
+                Console.WriteLine();
+            }
+            else
+            {
+                Console.WriteLine("Invalid Phone Number");
+                Console.WriteLine();
+                UserPhoneNumber();
             }
         }
     }
