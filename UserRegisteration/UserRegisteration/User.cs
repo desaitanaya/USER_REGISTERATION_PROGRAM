@@ -22,14 +22,18 @@ namespace UserRegisteration
             if (regexFirstName.IsMatch(firstName))
             {
                 Console.WriteLine("First Name : " + firstName);
+                Console.WriteLine();
                 UserLastName();
             }
             else
             {
                 Console.WriteLine("Invalid First Name");
+                Console.WriteLine();
+                UserFirstName();
             }
         }
 
+        //Validating Last Name
         public void UserLastName()
         {
             Console.WriteLine("Enter Last Name : ");
@@ -42,10 +46,37 @@ namespace UserRegisteration
             if (regexLastName.IsMatch(lastName))
             {
                 Console.WriteLine("Last Name : " + lastName);
+                Console.WriteLine();
+                UserEmail();
             }
             else
             {
                 Console.WriteLine("Invalid Last Name");
+                Console.WriteLine();
+                UserLastName();
+            }
+        }
+
+        //Validating Email
+        public void UserEmail()
+        {
+            Console.WriteLine("Enter Email : ");
+            string email = Console.ReadLine();
+
+            string emailPattern = @"^\w[a-z]{2,}\.\w[a-z]{2,}@[a-z]{1,}\.[a-z]{2}\.[a-z]{2}$";
+
+            Regex regexEmail = new Regex(emailPattern);
+            
+            if (regexEmail.IsMatch(email))
+            {
+                Console.WriteLine("Email : " + email);
+                Console.WriteLine();
+            }
+            else
+            {
+                Console.WriteLine("Invalid Email");
+                Console.WriteLine();
+                UserEmail();
             }
         }
     }
